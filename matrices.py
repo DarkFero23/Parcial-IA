@@ -17,6 +17,6 @@ with open(output_path, "w", encoding="utf-8") as f:
         df = pd.DataFrame(mat)
         # to_string con índices y cabeceras opcionales
         f.write(df.to_string(index=False, header=False))
-        f.write("\n\n")  # separador entre matrices
+        f.write("\n\n")  
 
 print(f"✅ Tablas volcadas en '{output_path}'")
