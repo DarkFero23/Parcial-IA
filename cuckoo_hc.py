@@ -59,7 +59,7 @@ def cuckoo_search_tsp(matriz_distancia, n_nests, max_iter, pa, alpha, Lambda):
         nests[worst] = best_nest.copy()
 
     # Intensificación final con Hill Climbing
-    local_nest, local_fitness = hill_climbing(matriz_distancia)
+    local_nest, local_fitness = hill_climbing(matriz_distancia, best_nest)
     if local_fitness < best_fitness:
         best_nest, best_fitness = local_nest, local_fitness
 

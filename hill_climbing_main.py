@@ -6,15 +6,20 @@ import pandas as pd
 from tsp_utils import generar_tsp, fitness, get_neighbors, graficar_ruta_grafo_espacial
 from matrices import matrices
 
-def hill_climbing(tsp):
-    current_solution = list(range(len(tsp)))
-    np.random.shuffle(current_solution)
+def hill_climbing(tsp, initial_solution=None):
+    if initial_solution is None:
+        current_solution = list(range(len(tsp)))
+        np.random.shuffle(current_solution)
+    else:
+        current_solution = initial_solution.copy()
+
     while True:
         neighbors = get_neighbors(current_solution)
         best_neighbor = min(neighbors, key=lambda x: fitness(x, tsp))
         if fitness(best_neighbor, tsp) >= fitness(current_solution, tsp):
             break
         current_solution = best_neighbor
+
     return current_solution, fitness(current_solution, tsp)
 
 if __name__ == "__main__":
