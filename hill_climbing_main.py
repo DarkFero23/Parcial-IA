@@ -63,8 +63,8 @@ if __name__ == "__main__":
 
     with open("resultados_hill_climbing.txt", "a", encoding="utf-8") as file:
         file.write("\nMejores rutas encontradas (menor distancia):\n")
-        file.write(mejores.to_string(index=False) + "\n")
-        file.write("\nMejor resultado por cada tamaño:\n")
+        file.write(mejores.to_string(index=False) + "\n") 
+        file.write("\nMejor resultado por cada tamaño:\n") 
         file.write(mejores_por_n[["n", "Distancia", "Tiempo (s)"]].to_string(index=False) + "\n")
 
     # Crear carpeta para guardar gráficos
